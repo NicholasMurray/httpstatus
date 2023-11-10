@@ -3,6 +3,18 @@ const HTTPStatusCode = require('http-status-code');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+const postResponseCodes = [
+  200, // OK
+  201, // Created
+  204, // No Content
+  400, // Bad Request
+  401, // Unauthorized
+  403, // Forbidden
+  404, // Not Found
+  422, // Unprocessable Entity
+  500, // Internal Server Error
+];
+
 // Homepage
 app.get('/api', (req, res) => {
   res.send(`
@@ -34,5 +46,22 @@ app.get('/api/:code', (req, res) => {
   res.setHeader('Content-Type', 'text/plain');
   res.send(`${statusCode} ${HTTPStatusCode.getMessage(statusCode)}`);  
 });
+
+// API
+app.post('/api/:code', (req, res) => {
+  const statusCode = parseInt(req.params.code);
+  
+  // Send error message if statusCode supplied is out of range
+  if (isNaN(statusCode) || !postResponseCodes.includes(statusCode)) {
+    return res.status(400).json({ error: 'Invalid status code' });
+  }
+
+  res.status(statusCode);
+
+  // Set headers based on the status code 
+  res.setHeader('Content-Type', 'text/plain');
+  res.send(`${statusCode} ${HTTPStatusCode.getMessage(statusCode)}`);  
+});
+
 
 module.exports = app;
