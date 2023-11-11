@@ -15,10 +15,32 @@ app.get('/api', (req, res) => {
         <title>HTTP Status Codes</title>
       </head>
       <body>
-        <h1>HTTP Status Codes</h1>
-        <p>
-          Request a HTTP response in the format: <a href="http://localhost:${PORT}/api/200">http://localhost:${PORT}/api/200</a>
-        </p>
+        <h1>🫖 HTTP Status Codes</h1>
+        <h2>
+          Request a HTTP response using HTTP Verbs
+        </h2>
+        <table>
+          <tr>
+            <td>GET:</td>
+            <td>https://httpstatus-ten.vercel.app/api/302</td>
+          </tr>
+          <tr>
+            <td>POST:</td>
+            <td>https://httpstatus-ten.vercel.app/api/201</td>
+          </tr>
+          <tr>
+            <td>PUT:</td>
+            <td>https://httpstatus-ten.vercel.app/api/204</td>
+          </tr>
+          <tr>
+            <td>PATCH:</td>
+            <td>https://httpstatus-ten.vercel.app/api/200</td>
+          </tr>
+          <tr>
+            <td>DELETE:</td>
+            <td>https://httpstatus-ten.vercel.app/api/202</td>
+          </tr>
+        </table>
       </body>
     </html>`
   );
