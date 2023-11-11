@@ -1,6 +1,6 @@
-# HTTPSTATUS
+# 🫖 HTTP Status Codes
 
-A node express server app that returns HTTP status responses to the HTTP status code requested
+A node express server app that returns HTTP status responses
 
 ## Install and run
 
@@ -13,19 +13,23 @@ npm install
 ### Run app locally
 
 ```
-node index.js
+node api/index.js
 ```
 
 or
 
 ```
-PORT=8888 node index.js
+PORT=8888 node api/index.js
 ```
 
 ## Usage
 
 ```
-http://localhost:3000/301
+GET:    http://localhost:3000/api/302
+POST:   http://localhost:3000/api/201
+PUT:    http://localhost:3000/api/204
+PATCH:  http://localhost:3000/api/200
+DELETE: http://localhost:3000/api/202
 ```
 
 ## Response
