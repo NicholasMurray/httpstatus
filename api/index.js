@@ -1,8 +1,12 @@
 const express = require('express');
 const HTTPStatusCode = require('http-status-code');
-const app = express();
+const cors = require('cors');
 const { postResponseCodes, putResponseCodes, patchResponseCodes, deleteResponseCodes } = require('./responseCodes');
+
+const app = express();
 const PORT = process.env.PORT || 3000;
+
+app.use(cors());
 
 // Homepage
 app.get('/api', (req, res) => {
